@@ -1,14 +1,14 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := provider-jet-template
+PROJECT_NAME := provider-jet-otc
 PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
 
-export TERRAFORM_VERSION := 1.0.11
-export TERRAFORM_PROVIDER_SOURCE := hashicorp/hashicups
-export TERRAFORM_PROVIDER_VERSION := 0.3.2
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-hashicups
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/hashicorp/terraform-provider-hashicups/releases/download/v0.3.2
+export TERRAFORM_VERSION := 1.1.3
+export TERRAFORM_PROVIDER_SOURCE := integrations/otc
+export TERRAFORM_PROVIDER_VERSION := v1.27.3
+export TERRAFORM_PROVIDER_DOWNLOAD_NAME := otc
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/opentelekomcloud/terraform-provider-opentelekomcloud/releases/download/v1.27.3
 
 PLATFORMS ?= linux_amd64 linux_arm64
 
@@ -50,7 +50,7 @@ GO111MODULE = on
 # Setup Images
 
 DOCKER_REGISTRY ?= crossplane
-IMAGES = provider-jet-template provider-jet-template-controller
+IMAGES = provider-jet-otc provider-jet-otc-controller
 -include build/makelib/image.mk
 
 # ====================================================================================
