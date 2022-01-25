@@ -1,0 +1,364 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.6.2
+  creationTimestamp: null
+  name: clusterv1s.mrs.otc.jet.crossplane.io
+spec:
+  group: mrs.otc.jet.crossplane.io
+  names:
+    categories:
+    - crossplane
+    - managed
+    - otcjet
+    kind: ClusterV1
+    listKind: ClusterV1List
+    plural: clusterv1s
+    singular: clusterv1
+  scope: Cluster
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.conditions[?(@.type=='Ready')].status
+      name: READY
+      type: string
+    - jsonPath: .status.conditions[?(@.type=='Synced')].status
+      name: SYNCED
+      type: string
+    - jsonPath: .metadata.annotations.crossplane\.io/external-name
+      name: EXTERNAL-NAME
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: AGE
+      type: date
+    name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: ClusterV1 is the Schema for the ClusterV1s API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: ClusterV1Spec defines the desired state of ClusterV1
+            properties:
+              deletionPolicy:
+                default: Delete
+                description: DeletionPolicy specifies what will happen to the underlying
+                  external when this managed resource is deleted - either "Delete"
+                  or "Orphan" the external resource.
+                enum:
+                - Orphan
+                - Delete
+                type: string
+              forProvider:
+                properties:
+                  addJobs:
+                    items:
+                      properties:
+                        arguments:
+                          type: string
+                        fileAction:
+                          type: string
+                        hiveScriptPath:
+                          type: string
+                        hql:
+                          type: string
+                        input:
+                          type: string
+                        jarPath:
+                          type: string
+                        jobLog:
+                          type: string
+                        jobName:
+                          type: string
+                        jobType:
+                          format: int64
+                          type: integer
+                        output:
+                          type: string
+                        shutdownCluster:
+                          type: boolean
+                        submitJobOnceClusterRun:
+                          type: boolean
+                      required:
+                      - jarPath
+                      - jobName
+                      - jobType
+                      - submitJobOnceClusterRun
+                      type: object
+                    type: array
+                  availableZoneId:
+                    type: string
+                  billingType:
+                    format: int64
+                    type: integer
+                  bootstrapScripts:
+                    items:
+                      properties:
+                        activeMaster:
+                          type: boolean
+                        beforeComponentStart:
+                          type: boolean
+                        failAction:
+                          type: string
+                        name:
+                          type: string
+                        nodes:
+                          items:
+                            type: string
+                          type: array
+                        parameters:
+                          type: string
+                        uri:
+                          type: string
+                      required:
+                      - failAction
+                      - name
+                      - nodes
+                      - uri
+                      type: object
+                    type: array
+                  clusterAdminSecret:
+                    type: string
+                  clusterName:
+                    type: string
+                  clusterType:
+                    format: int64
+                    type: integer
+                  clusterVersion:
+                    type: string
+                  componentList:
+                    items:
+                      properties:
+                        componentName:
+                          type: string
+                      required:
+                      - componentName
+                      type: object
+                    type: array
+                  coreDataVolumeCount:
+                    format: int64
+                    type: integer
+                  coreDataVolumeSize:
+                    format: int64
+                    type: integer
+                  coreDataVolumeType:
+                    type: string
+                  coreNodeNum:
+                    format: int64
+                    type: integer
+                  coreNodeSize:
+                    type: string
+                  logCollection:
+                    format: int64
+                    type: integer
+                  masterDataVolumeCount:
+                    format: int64
+                    type: integer
+                  masterDataVolumeSize:
+                    format: int64
+                    type: integer
+                  masterDataVolumeType:
+                    type: string
+                  masterNodeNum:
+                    format: int64
+                    type: integer
+                  masterNodeSize:
+                    type: string
+                  nodePublicCertName:
+                    type: string
+                  region:
+                    type: string
+                  safeMode:
+                    format: int64
+                    type: integer
+                  subnetId:
+                    type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  volumeSize:
+                    format: int64
+                    type: integer
+                  volumeType:
+                    type: string
+                  vpcId:
+                    type: string
+                required:
+                - availableZoneId
+                - billingType
+                - clusterName
+                - componentList
+                - coreNodeNum
+                - coreNodeSize
+                - masterNodeNum
+                - masterNodeSize
+                - nodePublicCertName
+                - safeMode
+                - subnetId
+                - vpcId
+                type: object
+              providerConfigRef:
+                default:
+                  name: default
+                description: ProviderConfigReference specifies how the provider that
+                  will be used to create, observe, update, and delete this managed
+                  resource should be configured.
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              providerRef:
+                description: 'ProviderReference specifies the provider that will be
+                  used to create, observe, update, and delete this managed resource.
+                  Deprecated: Please use ProviderConfigReference, i.e. `providerConfigRef`'
+                properties:
+                  name:
+                    description: Name of the referenced object.
+                    type: string
+                required:
+                - name
+                type: object
+              writeConnectionSecretToRef:
+                description: WriteConnectionSecretToReference specifies the namespace
+                  and name of a Secret to which any connection details for this managed
+                  resource should be written. Connection details frequently include
+                  the endpoint, username, and password required to connect to the
+                  managed resource.
+                properties:
+                  name:
+                    description: Name of the secret.
+                    type: string
+                  namespace:
+                    description: Namespace of the secret.
+                    type: string
+                required:
+                - name
+                - namespace
+                type: object
+            required:
+            - forProvider
+            type: object
+          status:
+            description: ClusterV1Status defines the observed state of ClusterV1.
+            properties:
+              atProvider:
+                properties:
+                  availableZoneName:
+                    type: string
+                  chargingStartTime:
+                    type: string
+                  clusterId:
+                    type: string
+                  clusterState:
+                    type: string
+                  coreNodeProductId:
+                    type: string
+                  coreNodeSpecId:
+                    type: string
+                  createAt:
+                    type: string
+                  deploymentId:
+                    type: string
+                  duration:
+                    type: string
+                  errorInfo:
+                    type: string
+                  externalAlternateIp:
+                    type: string
+                  externalIp:
+                    type: string
+                  fee:
+                    type: string
+                  hadoopVersion:
+                    type: string
+                  id:
+                    type: string
+                  instanceId:
+                    type: string
+                  internalIp:
+                    type: string
+                  masterNodeIp:
+                    type: string
+                  masterNodeProductId:
+                    type: string
+                  masterNodeSpecId:
+                    type: string
+                  orderId:
+                    type: string
+                  privateIpFirst:
+                    type: string
+                  remark:
+                    type: string
+                  securityGroupsId:
+                    type: string
+                  slaveSecurityGroupsId:
+                    type: string
+                  tenantId:
+                    type: string
+                  updateAt:
+                    type: string
+                  vnc:
+                    type: string
+                type: object
+              conditions:
+                description: Conditions of the resource.
+                items:
+                  description: A Condition that may apply to a resource.
+                  properties:
+                    lastTransitionTime:
+                      description: LastTransitionTime is the last time this condition
+                        transitioned from one status to another.
+                      format: date-time
+                      type: string
+                    message:
+                      description: A Message containing details about this condition's
+                        last transition from one status to another, if any.
+                      type: string
+                    reason:
+                      description: A Reason for this condition's last transition from
+                        one status to another.
+                      type: string
+                    status:
+                      description: Status of this condition; is it currently True,
+                        False, or Unknown?
+                      type: string
+                    type:
+                      description: Type of this condition. At most one of each condition
+                        type may apply to a resource at any point in time.
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+            type: object
+        required:
+        - spec
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

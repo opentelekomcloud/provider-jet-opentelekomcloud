@@ -1,7 +1,7 @@
 apiVersion: meta.pkg.crossplane.io/v1alpha1
 kind: Provider
 metadata:
-  name: provider-jet-otc
+  name: otc-provider-jet
 spec:
   controller:
-    image: DOCKER_REGISTRY/provider-jet-otc-controller:VERSION
+    image: DOCKER_REGISTRY/otc-provider-jet-controller:VERSION

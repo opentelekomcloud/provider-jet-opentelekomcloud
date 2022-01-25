@@ -1,8 +1,8 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := provider-jet-otc
-PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
+PROJECT_NAME := otc-provider-jet
+PROJECT_REPO := github.com/enrrou/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.3
 export TERRAFORM_PROVIDER_SOURCE := integrations/otc
@@ -50,7 +50,7 @@ GO111MODULE = on
 # Setup Images
 
 DOCKER_REGISTRY ?= crossplane
-IMAGES = provider-jet-otc provider-jet-otc-controller
+IMAGES = otc-provider-jet otc-provider-jet-controller
 -include build/makelib/image.mk
 
 # ====================================================================================
