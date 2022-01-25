@@ -24,7 +24,7 @@ import (
 	"os"
 	"path/filepath"
 
-	tf "github.com/opentelekomcloud/terraform-provider-opentelekomcloud"
+	tf "github.com/opentelekomcloud/terraform-provider-opentelekomcloud/opentelekomcloud"
 
 	"github.com/crossplane/terrajet/pkg/pipeline"
 	// Comment out the line below, if your Terraform provider uses an old
