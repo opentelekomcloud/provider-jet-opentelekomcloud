@@ -1,7 +1,7 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := otc-provider-jet
+PROJECT_NAME := provider-jet-opentelekomcloud
 PROJECT_REPO := github.com/enrrou/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.3
@@ -50,7 +50,7 @@ GO111MODULE = on
 # Setup Images
 
 DOCKER_REGISTRY ?= crossplane
-IMAGES = otc-provider-jet otc-provider-jet-controller
+IMAGES = provider-jet-opentelekomcloud provider-jet-opentelekomcloud-controller
 -include build/makelib/image.mk
 
 # ====================================================================================

@@ -34,7 +34,7 @@ import (
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	v1alpha1 "github.com/enrrou/otc-provider-jet/apis/csbs/v1alpha1"
+	v1alpha1 "github.com/enrrou/provider-jet-opentelekomcloud/apis/csbs/v1alpha1"
 )
 
 // Setup adds a controller that reconciles BackupPolicyV1 managed resources.

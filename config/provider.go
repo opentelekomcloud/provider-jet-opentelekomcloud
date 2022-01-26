@@ -23,7 +23,7 @@ import (
 
 const (
 	resourcePrefix = "otc"
-	modulePath     = "github.com/enrrou/otc-provider-jet"
+	modulePath     = "github.com/enrrou/provider-jet-opentelekomcloud"
 )
 
 // GetProvider returns provider configuration

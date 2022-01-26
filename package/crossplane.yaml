@@ -1,7 +1,7 @@
 apiVersion: meta.pkg.crossplane.io/v1alpha1
 kind: Provider
 metadata:
-  name: otc-provider-jet
+  name: provider-jet-opentelekomcloud
 spec:
   controller:
-    image: DOCKER_REGISTRY/otc-provider-jet-controller:VERSION
+    image: DOCKER_REGISTRY/provider-jet-opentelekomcloud-controller:VERSION

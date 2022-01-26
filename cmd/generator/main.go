@@ -31,7 +31,7 @@ import (
 	// version (<v2) of github.com/hashicorp/terraform-plugin-sdk.
 	// "github.com/crossplane/terrajet/pkg/types/conversion"
 
-	"github.com/enrrou/otc-provider-jet/config"
+	"github.com/enrrou/provider-jet-opentelekomcloud/config"
 )
 
 func main() {

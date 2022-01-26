@@ -1,4 +1,4 @@
-module github.com/enrrou/otc-provider-jet
+module github.com/enrrou/provider-jet-opentelekomcloud
 
 go 1.16
 

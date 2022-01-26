@@ -34,7 +34,7 @@ import (
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	v1alpha1 "github.com/enrrou/otc-provider-jet/apis/cce/v1alpha1"
+	v1alpha1 "github.com/enrrou/provider-jet-opentelekomcloud/apis/cce/v1alpha1"
 )
 
 // Setup adds a controller that reconciles ClusterV3 managed resources.

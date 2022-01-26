@@ -23,10 +23,10 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/terrajet/pkg/terraform"
-	"github.com/enrrou/otc-provider-jet/apis"
-	pconfig "github.com/enrrou/otc-provider-jet/config"
-	"github.com/enrrou/otc-provider-jet/internal/clients"
-	"github.com/enrrou/otc-provider-jet/internal/controller"
+	"github.com/enrrou/provider-jet-opentelekomcloud/apis"
+	pconfig "github.com/enrrou/provider-jet-opentelekomcloud/config"
+	"github.com/enrrou/provider-jet-opentelekomcloud/internal/clients"
+	"github.com/enrrou/provider-jet-opentelekomcloud/internal/controller"
 	tf "github.com/hashicorp/terraform-provider-hashicups/hashicups"
 	"gopkg.in/alecthomas/kingpin.v2"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -46,7 +46,7 @@ func main() {
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
 	zl := zap.New(zap.UseDevMode(*debug))
-	log := logging.NewLogrLogger(zl.WithName("otc-provider-jet"))
+	log := logging.NewLogrLogger(zl.WithName("provider-jet-opentelekomcloud"))
 	if *debug {
 		// The controller-runtime runs with a no-op logger by default. It is
 		// *very* verbose even at info level, so we only provide it a real
@@ -61,7 +61,7 @@ func main() {
 
 	mgr, err := ctrl.NewManager(cfg, ctrl.Options{
 		LeaderElection:   *leaderElection,
-		LeaderElectionID: "crossplane-leader-election-otc-provider-jet",
+		LeaderElectionID: "crossplane-leader-election-provider-jet-opentelekomcloud",
 		SyncPeriod:       syncPeriod,
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")

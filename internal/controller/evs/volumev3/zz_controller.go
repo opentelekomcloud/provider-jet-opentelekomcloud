@@ -34,7 +34,7 @@ import (
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	v1alpha1 "github.com/enrrou/otc-provider-jet/apis/evs/v1alpha1"
+	v1alpha1 "github.com/enrrou/provider-jet-opentelekomcloud/apis/evs/v1alpha1"
 )
 
 // Setup adds a controller that reconciles VolumeV3 managed resources.
