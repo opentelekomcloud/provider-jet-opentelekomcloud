@@ -6,8 +6,8 @@ PROJECT_REPO := github.com/enrrou/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.3
 export TERRAFORM_PROVIDER_SOURCE := integrations/otc
-export TERRAFORM_PROVIDER_VERSION := v1.27.3
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME := otc
+export TERRAFORM_PROVIDER_VERSION := 1.27.3
+export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-opentelekomcloud
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://github.com/opentelekomcloud/terraform-provider-opentelekomcloud/releases/download/v1.27.3
 
 PLATFORMS ?= linux_amd64 linux_arm64
