@@ -34,7 +34,7 @@ import (
 	tjcontroller "github.com/crossplane/terrajet/pkg/controller"
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	v1alpha1 "github.com/enrrou/provider-jet-opentelekomcloud/apis/kms/v1alpha1"
+	v1alpha1 "github.com/opentelekomcloud/provider-jet-opentelekomcloud/apis/kms/v1alpha1"
 )
 
 // Setup adds a controller that reconciles GrantV1 managed resources.
