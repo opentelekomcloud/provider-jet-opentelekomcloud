@@ -2,7 +2,7 @@
 # Setup Project
 
 PROJECT_NAME := provider-jet-opentelekomcloud
-PROJECT_REPO := github.com/enrrou/$(PROJECT_NAME)
+PROJECT_REPO := github.com/opentelekomcloud/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.3
 export TERRAFORM_PROVIDER_SOURCE := integrations/otc

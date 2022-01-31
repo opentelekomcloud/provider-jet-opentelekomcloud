@@ -8,12 +8,12 @@ OTC API.
 ## Getting Started
 
 Install the provider by using the following command after changing the image tag
-to the [latest release](https://github.com/enrrou/provider-jet-opentelekomcloud/releases):
+to the [latest release](https://github.com/opentelekomcloud/provider-jet-opentelekomcloud/releases):
 ```
 kubectl crossplane install provider crossplane/provider-jet-opentelekomcloud:v0.1.0
 ```
 
-You can see the API reference [here](https://doc.crds.dev/github.com/enrrou/provider-jet-opentelekomcloud).
+You can see the API reference [here](https://doc.crds.dev/github.com/opentelekomcloud/provider-jet-opentelekomcloud).
 
 ## Developing
 
@@ -55,7 +55,7 @@ make build
 ## Report a Bug
 
 For filing bugs, suggesting improvements, or requesting new features, please
-open an [issue](https://github.com/enrrou/provider-jet-opentelekomcloud/issues).
+open an [issue](https://github.com/opentelekomcloud/provider-jet-opentelekomcloud/issues).
 
 ## Contact
 
